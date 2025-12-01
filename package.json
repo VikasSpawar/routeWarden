@@ -1,0 +1,27 @@
+{
+  "name": "routewarden",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    
+   
+    "client": "npm run dev --prefix client",
+    "server": "npm run dev --prefix server",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    
+   
+    "install-all": "npm install --prefix client && npm install --prefix server",
+    "build-client": "npm run build --prefix client",
+    "deploy-build": "npm run install-all && npm run build-client", 
+    "start": "node server/index.js" 
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "RouteWarden: Full-Stack API Testing Tool",
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

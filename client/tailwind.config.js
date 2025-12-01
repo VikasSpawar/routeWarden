@@ -1,0 +1,18 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        // We'll define a custom dark theme palette later
+        background: "#0f172a", // Slate 900
+        surface: "#1e293b",    // Slate 800
+        primary: "#3b82f6",    // Blue 500
+      }
+    },
+  },
+  plugins: [],
+}
