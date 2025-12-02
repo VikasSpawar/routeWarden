@@ -187,7 +187,7 @@ export const useRequestStore = create((set, get) => ({
       const finalBody = method !== 'GET' ? JSON.parse(finalBodyString || '{}') : undefined;
 
       // 2. SEND TO PROXY
-      const res = await axios.post('http://localhost:5000/proxy', {
+      const res = await axios.post('/proxy', {
         url: finalUrl,
         method,
         headers: cleanHeaders,
