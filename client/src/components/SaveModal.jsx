@@ -35,7 +35,7 @@ export default function SaveModal({ isOpen, onClose }) {
 
   return createPortal(
     <div className="fixed  inset-0 bg-black/50 flex items-center justify-center z-100">
-      <div className="bg-surface border border-slate-700 p-6 rounded-lg w-96 shadow-xl">
+      <div className="bg-surface border border-slate-700 p-6 rounded-lg w-96 shadow-xl backdrop-blur-sm">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg font-bold">Save Request</h2>
           <button onClick={onClose}><X size={20} className="text-slate-400 hover:text-white"/></button>
@@ -62,8 +62,8 @@ export default function SaveModal({ isOpen, onClose }) {
                   value={selectedCol}
                   onChange={(e) => setSelectedCol(e.target.value)}
                 >
-                  <option value="">Select a folder...</option>
-                  {collections.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
+                  <option className='text-black' value="">Select a folder...</option>
+                  {collections.map(c => <option  className="text-black" key={c.id} value={c.id}>{c.name}</option>)}
                 </select>
                 <button 
                   onClick={() => setIsCreatingCol(true)}

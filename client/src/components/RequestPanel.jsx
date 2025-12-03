@@ -161,13 +161,16 @@ export default function RequestPanel() {
 
   const activeEnvName = environments.find(e => e.id === activeEnvId)?.name || 'No Env';
 
-  const getMethodColor = (m) => {
-    if (m === 'GET') return 'text-emerald-400';
-    if (m === 'POST') return 'text-amber-400';
-    if (m === 'PUT') return 'text-blue-400';
-    if (m === 'DELETE') return 'text-rose-400';
-    return 'text-slate-400';
+const getMethodColor = (method) => {
+  const colors = { 
+    GET: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20', 
+    POST: 'text-amber-400 bg-amber-400/10 border-amber-400/20', 
+    PUT: 'text-blue-400 bg-blue-400/10 border-blue-400/20', 
+    DELETE: 'text-rose-400 bg-rose-400/10 border-rose-400/20',
+    PATCH: 'text-indigo-400 bg-indigo-400/10 border-indigo-400/20', // 🆕 PATCH COLOR
   };
+  return colors[method] || 'text-slate-400 bg-slate-400/10 border-slate-400/20';
+};
 
   return (
    <div className="flex-1 flex flex-col h-screen bg-[#0B0C10] relative z-0 min-w-[400px]">
@@ -182,16 +185,17 @@ export default function RequestPanel() {
         <div className="flex-1 min-w-0 h-12 flex items-center bg-[#121212] border border-white/10 rounded-xl px-1 shadow-lg shadow-black/20 focus-within:ring-1 focus-within:ring-blue-500/30 focus-within:border-blue-500/50 transition-all duration-300 group">
           
           <div className="relative h-full flex items-center justify-center border-r border-white/5 pl-2 pr-1 shrink-0">
-            <select 
-              value={method}
-              onChange={(e) => setMethod(e.target.value)}
-              className={clsx("bg-transparent text-xs font-bold appearance-none focus:outline-none cursor-pointer text-center w-[70px] tracking-wide", getMethodColor(method))}
-            >
-              <option value="GET">GET</option>
-                <option value="POST">POST</option>
-                <option value="PUT">PUT</option>
-                <option value="DELETE">DEL</option>
-              </select>
+       <select 
+  value={method}
+  onChange={(e) => setMethod(e.target.value)}
+  className={clsx("bg-transparent text-xs font-bold appearance-none focus:outline-none cursor-pointer text-center w-[70px] tracking-wide", getMethodColor(method))}
+>
+  <option value="GET">GET</option>
+  <option value="POST">POST</option>
+  <option value="PUT">PUT</option>
+  <option value="DELETE">DEL</option>
+  <option value="PATCH">PATCH</option> 
+</select>
             </div>
 
             {/* URL Input */}
