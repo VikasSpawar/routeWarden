@@ -1,57 +1,3 @@
-// import { useRequestStore } from '../store/requestStore';
-// import JsonEditor from './JsonEditor';
-
-// export default function ResponsePanel() {
-//   const { response, error, isLoading } = useRequestStore();
-
-//   // Helper to color code status
-//   const getStatusColor = (status) => {
-//     if (status >= 200 && status < 300) return 'text-green-400';
-//     if (status >= 300 && status < 400) return 'text-yellow-400';
-//     return 'text-red-400';
-//   };
-
-//   return (
-//     <div className="flex-1 h-screen flex flex-col bg-surface min-w-[300px]">
-//       <div className="h-14 border-b border-slate-700 flex items-center px-4 justify-between">
-//         <span className="text-sm font-semibold text-slate-400">Response</span>
-        
-//         {response && (
-//           <div className="flex gap-4 text-xs text-slate-400">
-//             <span>Status: <span className={getStatusColor(response.status)}>{response.status} {response.statusText}</span></span>
-//             <span>Time: <span className="text-blue-400">{response.time}</span></span>
-//             <span>Size: <span className="text-yellow-400">{response.size}</span></span>
-//           </div>
-//         )}
-//       </div>
-
-//       <div className="flex-1 p-4 overflow-auto font-mono text-sm text-slate-300">
-//         {isLoading && <div className="text-slate-400 animate-pulse">Sending Request...</div>}
-        
-//         {!isLoading && error && (
-//             <div className="text-red-400 p-2 border border-red-900 bg-red-900/20 rounded">
-//                 Error: {error}
-//             </div>
-//         )}
-
-//     {!isLoading && response && (
-//           <div className="h-full">
-//             <JsonEditor 
-//               value={JSON.stringify(response.data, null, 2)} 
-//               readOnly={true} 
-//             />
-//           </div>
-//         )}
-
-//         {!isLoading && !response && !error && (
-//           <div className="text-slate-500 italic text-center mt-10">
-//             Enter a URL and hit Send
-//           </div>
-//         )}
-//       </div>
-//     </div>
-//   );
-// }
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useRequestStore } from '../store/requestStore';
@@ -194,3 +140,5 @@ export default function ResponsePanel() {
     </div>
   );
 }
+
+

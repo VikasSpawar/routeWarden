@@ -1,3 +1,4 @@
+import "./App.css";
 import { useEffect, useState } from 'react';
 import { supabase } from './lib/supabaseClient';
 import { useRequestStore } from './store/requestStore';

@@ -1,0 +1,20 @@
+/* === Forced Method Colors (Overrides Tailwind) === */
+.bg-method-get    { background-color: #2563eb !important; }
+.bg-method-post   { background-color: #16a34a !important; }
+.bg-method-put    { background-color: #f59e0b !important; }
+.bg-method-delete { background-color: #dc2626 !important; }
+.bg-method-patch  { background-color: #8b5cf6 !important; }
+
+/* === Forced Status Colors === */
+.bg-status-200 { background-color: #22c55e !important; }
+.bg-status-400 { background-color: #facc15 !important; }
+.bg-status-500 { background-color: #ef4444 !important; }
+
+.text-status-200 { color: #22c55e !important; }
+.text-status-400 { color: #facc15 !important; }
+.text-status-500 { color: #ef4444 !important; }
+
+/* Optional: softer backgrounds */
+.bg-status-200\/20 { background-color: rgba(34, 197, 94, 0.2) !important; }
+.bg-status-400\/20 { background-color: rgba(250, 204, 21, 0.2) !important; }
+.bg-status-500\/20 { background-color: rgba(239, 68, 68, 0.2) !important; }

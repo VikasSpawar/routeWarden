@@ -24,3 +24,4 @@ export default function JsonEditor({ value, onChange, readOnly = false }) {
     </div>
   );
 }
+
