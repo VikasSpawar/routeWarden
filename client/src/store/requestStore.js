@@ -4,8 +4,8 @@ import { supabase } from '../lib/supabaseClient';
 
 export const useRequestStore = create((set, get) => ({
   // ... (keep existing state) ...
-  url: 'https://jsonplaceholder.typicode.com/posts',
-  method: 'POST',
+  url: 'https://dummyjson.com/products',
+  method: 'GET',
   headers: [{ id: 1, key: 'Content-Type', value: 'application/json', active: true }],
   queryParams: [{ id: 1, key: '', value: '', active: true }],
   body: '{\n  "title": "foo",\n  "body": "bar",\n  "userId": 1\n}', 
@@ -187,7 +187,9 @@ export const useRequestStore = create((set, get) => ({
       const finalBody = method !== 'GET' ? JSON.parse(finalBodyString || '{}') : undefined;
 
       // 2. SEND TO PROXY
-      const res = await axios.post('/proxy', {
+  // ✅ Use the external API base URL from the environment
+const API_BASE_URL = import.meta.env.VITE_API_URL;
+const res = await axios.post(`${API_BASE_URL}/proxy`, {
         url: finalUrl,
         method,
         headers: cleanHeaders,

@@ -7,7 +7,12 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+const allowedOrigin = process.env.CORS_ORIGIN || '*'; 
+
+app.use(cors({
+    origin: allowedOrigin,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+}));
 app.use(express.json());
 
 // --- 1. PROXY AGENT LOGIC ---
